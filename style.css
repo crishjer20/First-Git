@@ -364,56 +364,383 @@ img {
     margin-right: auto;
 }
 
-/* Kotak Coming Soon */
-.coming-soon-box {
-    background-color: #FFF9EC;
-    border: 2px dashed #E8D5B9;
-    border-radius: 12px;
-    padding: 30px 20px;
-    margin: 25px auto;
+/* ==== KONTEN UTAMA - SEJAJAR ==== */
+.main-content {
+    padding: 1rem 0 2rem;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 1.5rem;
+}
+
+.card {
+    background-color: #FFFFFF;
+    padding: 1.8rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(75, 46, 32, 0.05);
+}
+
+.card h2 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-bottom: 1.4rem;
+    letter-spacing: 0.5px;
+}
+
+/* --- FORM --- */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.65rem;
+    border: 1px solid #E8DAC5;
+    border-radius: 4px;
+    background-color: #FAF4E8;
+    font-size: 0.85rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.counter {
+    display: flex;
+    border: 1px solid #E8DAC5;
+    border-radius: 4px;
+    background-color: #FAF4E8;
+    width: fit-content;
+}
+
+.counter button {
+    border: none;
+    background: none;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.counter input {
+    border: none;
+    width: 35px;
+    text-align: center;
+    background: transparent;
+}
+
+.btn-confirm {
+    width: 100%;
+    background-color: #6B4836;
+    color: #ffffff;
+    border: none;
+    padding: 0.7rem;
+    border-radius: 4px;
+    margin-top: 0.8rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.note {
+    font-size: 0.7rem;
+    text-align: center;
+    margin-top: 0.4rem;
+    color: #6B4836;
+}
+
+/* --- TABEL --- */
+.registry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tabs {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.tab-btn {
+    border: none;
+    background:#F6EBD8;
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: #443322;
+    font-weight: 500;
+}
+
+.tab-btn.active[data-filter="all"] { background-color: #d6b89e; color: #443322; }
+.tab-btn.active[data-filter="confirmed"] { background-color: #8b5a2b; color: white; }
+.tab-btn.active[data-filter="waitlist"] { background-color: #cd853f; color: white; }
+.tab-btn.active[data-filter="cancelled"] { background-color: #a0522d; color: white; }
+.tab-btn.active[data-filter="completed"] { background-color: #4B2E20; color: white; }
+
+.filter-icon {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.tab-btn.active {
+    background-color: #6B4836;
+    color:#ffffff;
+}
+
+.filter-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.registry-list {
+    min-height: 200px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 2rem;
+    color: #6B4836;
+    font-style: italic;
+    font-size: 0.85rem;
+}
+
+.registry-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 0.8rem;
+    background-color:#F6EBD8;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.time {
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+.name {
+    flex: 1;
+    margin-left: 0.8rem;
+    font-size: 0.85rem;
+}
+
+.duration {
+    font-size: 0.75rem;
+    background-color:#E8DAC5;
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+}
+
+/* ==== BAGIAN BAWAH ==== */
+.bottom-section {
+    padding-bottom: 3rem;
+}
+
+.image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.info-card {
+    background-color:#4B2E20;
+    color: var(--putih);
+    padding: 1.8rem;
+    border-radius: 10px;
+}
+
+.info-card h2 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.info-card p {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+}
+
+.info-buttons {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.info-buttons button {
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.btn-download {
+    background-color:#ffffff;
+    color:#4B2E20;
+}
+
+.btn-settings {
+    background-color: rgba(255,255,255,0.2);
+    color: #ffffff;
+}
+
+/* ==== NOTIFIKASI ==== */
+.notification {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.notification.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.notification-box {
+    background:#ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.notification-box i {
+    font-size: 2.5rem;
+    color: #28a745;
+    margin-bottom: 1rem;
+}
+
+/* ==== reservasi bagian home==== */
+.reservation-setion {
+    padding: 4rem 1.2rem;
+    background-color: #FAF4E8;
+}
+
+.reservation-container {
     max-width: 700px;
+    margin: 0 auto;
     text-align: center;
 }
 
-.coming-soon-icon {
-    font-size: 40px;
-    color: #B07D58;
-    margin-bottom: 15px;
-    display: block;
-}
-
-.coming-soon-text {
-    color: #5A3E2B;
-    font-size: 24px;
-    margin-bottom: 10px;
+.reservation-title {
+    font-size: 2rem;
+    color:#4B2E20;
+    margin-bottom: 0.5rem;
     font-weight: 600;
 }
 
-.coming-soon-desc {
-    color: #6D5544;
-    font-size: 16px;
-    line-height: 1.6;
+.reservation-subtitle {
+    font-size: 1rem;
+    color: #6B4836;
+    margin-bottom: 2rem;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.tags {
+.reservation-card {
+    background-color: #ffffff;
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(75, 46, 32, 0.08);
+    margin-bottom: 2rem;
+}
+
+.reservasion-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.reservation-status {
+    font-size: 1.3rem;
+    color:4B2E20;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.reservation-desc {
+    font-size: 0.95rem;
+    color:#6B4836;
+    margin-bottom: 1.8rem;
+    line-height: 1.7;
+}
+
+.btn-book {
+    display: inline-block;
+    background-color:#6B4836;
+    color:#ffffff;
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-book:hover {
+    background-color: #4B2E20;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(75, 46, 32, 0.15);
+}
+
+.features {
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 2rem;
     flex-wrap: wrap;
-    margin-top: 20px;
 }
 
-.tags span {
-    font-size: 15px;
-    color: #8B5E3C;
+.feature-item {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    color: #423224;
+    font-weight: 500;
 }
 
-.tags i {
-    color: #E2A878;
-    font-size: 10px;
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color:#6B4836;
+    border-radius: 50%;
+    display: inline-block;
 }
 
 /* BAGIAN MENU */
@@ -553,69 +880,6 @@ img {
     border-radius: 20px;
     background-color: #E8D5B9;
     color: #5A3E2B;
-}
-
-/* BAGIAN RESERVASI */
-.reservation-coming-soon {
-    padding: 80px 0;
-    background-color: #FFFFFF;
-}
-
-.coming-soon-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 50vh;
-}
-
-.coming-soon-box.elegant {
-    background-color: #FFF9EC;
-    border: 2px dashed #E8D5B9;
-    border-radius: 12px;
-    padding: 40px 30px;
-    margin: 25px auto;
-    max-width: 700px;
-    text-align: center;
-}
-
-.coming-soon-icon {
-    font-size: 50px;
-    color: #B07D58;
-    margin-bottom: 20px;
-    display: block;
-}
-
-.coming-soon-title {
-    font-size: 32px;
-    color: #5A3E2B;
-    margin-bottom: 8px;
-}
-
-.coming-soon-subtitle {
-    font-size: 26px;
-    color: #8B5E3C;
-    margin-bottom: 20px;
-}
-
-.coming-soon-text {
-    color: #6D5544;
-    font-size: 16px;
-    line-height: 1.7;
-    margin-bottom: 25px;
-}
-
-.coming-soon-info p {
-    font-size: 15px;
-    color: #6D5544;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
-.coming-soon-info i {
-    color: #B07D58;
 }
 
 /* BAGIAN TENTANG KAMI */
@@ -886,12 +1150,12 @@ img {
         font-size: 22px;
     }
 
-    .coming-soon-title {
-        font-size: 24px;
+    .reservation-title {
+        font-size: 1.6rem;
     }
 
-    .coming-soon-subtitle {
-        font-size: 19px;
+    .reservation-section {
+        padding: 2rem 1rem;
     }
 }
 
