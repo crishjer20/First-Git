@@ -29,21 +29,103 @@
         </div>
     </header>
 
-    <!-- Bagian Utama Coming Soon -->
-    <section class="reservation-coming-soon">
-        <div class="container coming-soon-container">
-            <div class="coming-soon-box elegant">
-                <i class="fas fa-calendar-check coming-soon-icon"></i>
-                <h1 class="coming-soon-title">Reservasi Tempat</h1>
-                <h2 class="coming-soon-subtitle">Coming Soon</h2>
-                <p class="coming-soon-text">Kami sedang menyiapkan sistem pemesanan meja yang mudah dan nyaman. Kamu akan bisa memesan tempat untuk berbagai keperluan, mulai dari pertemuan santai hingga acara khusus.</p>
-                <div class="coming-soon-info">
-                    <p><i class="fas fa-clock"></i> Akan segera tersedia dalam waktu dekat</p>
-                    <p><i class="fas fa-phone"></i> Sementara ini, pemesanan bisa menghubungi: +62 61-4530970</p>
+    <main>
+        <!-- HEADER ATAS -->
+        <section class="page-header">
+            <div class="container header-layout">
+                <div class="header-info">
+                    <p class="sub-heading">THE THIRTY-SIX CAFE</p>
+                    <h1 class="main-title">Unified Floor Management</h1>
+                    <p class="desc">Kelola pemesanan meja dengan mudah, koordinasi kedatangan tamu, dan pantau ketersediaan tempat secara terpusat untuk pengalaman pelayanan terbaik.</p>
+                </div>
+                <div class="stats-box">
+                    <div class="stat-item">
+                        <span class="num">94%</span>
+                        <span class="label">Kapasitas</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="num">22</span>
+                        <span class="label">Aktif</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- KONTEN UTAMA: FORM & TABEL SEJAJAR -->
+        <section class="main-content">
+            <div class="container content-grid">
+                <!-- FORM NEW BOOKING -->
+                <div class="card new-booking">
+                    <h2>New Booking</h2>
+                    <form id="bookingForm">
+                        <div class="form-group">
+                            <label>GUEST NAME</label>
+                            <input type="text" placeholder="e.g. diana" id="guestName" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>DATE</label>
+                                <input type="date" id="bookingDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label>TIME</label>
+                                <input type="time" id="bookingTime" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>TABLE NO.</label>
+                            <div class="counter">
+                                <button type="button" class="btn-minus">-</button>
+                                <input type="text" value="1" id="tableNo" readonly>
+                                <button type="button" class="btn-plus">+</button>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-confirm">Confirm Reservation</button>
+                        <p class="note">Confirmation sent via email & SMS</p>
+                    </form>
+                </div>
+
+                <!-- DAFTAR HARIAN -->
+                <div class="card daily-registry">
+                    <div class="registry-header">
+                        <h2>DAILY REGISTRY</h2>
+                        <div class="tabs">
+                            <button class="tab-btn active" data-filter="all">ALL <span>(0)</span></button>
+                            <button class="tab-btn" data-filter="confirmed">CONFIRMED <span>(0)</span></button>
+                            <button class="tab-btn" data-filter="waitlist">WAITLIST <span>(0)</span></button>
+                            <button class="tab-btn" data-filter="cancelled">CANCELLED <span>(0)</span></button>
+                            <button class="tab-btn" data-filter="completed">COMPLETED <span>(0)</span></button>
+                        </div>
+                        <button class="filter-icon"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <div class="registry-list" id="registryList">
+                        <div class="empty-state">Belum ada reservasi yang dimasukkan</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BAGIAN BAWAH: GAMBAR & INFO -->
+        <section class="bottom-section">
+            <div class="container content-grid">
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Restaurant ambiance">
+                </div>
+                <div class="info-card">
+                    <h2>Floor Management Optimization</h2>
+                    <p>The Thirty-Six Cafe's top-tier seating and table-turning system reduces wait times by 40% and improves seating efficiency by 28% — driving better revenue per hour.</p>
+                    <div class="info-buttons">
+                        <button class="btn-download">DOWNLOAD REPORTS</button>
+                        <button class="btn-settings">SUIT LOGIC</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -82,5 +164,17 @@
             <p>©2013 THE THIRTY-SIX CAFE. ALL RIGHTS RESERVED.</p>
         </div>
     </footer>
+
+    <!-- NOTIFIKASI -->
+    <div id="notification" class="notification">
+        <div class="notification-box">
+            <i class="fas fa-check-circle"></i>
+            <h3>Reservasi Berhasil!</h3>
+            <p>Data telah ditambahkan ke daftar.</p>
+        </div>
+    </div>
+
+    <!--Panggil File Js-->
+    <script src="script.js"></script>
 </body>
 </html>
