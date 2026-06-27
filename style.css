@@ -197,6 +197,15 @@ img {
 }
 
 /* KARTU PROMO (HOME) */
+.promo-section-title {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #5A3824;
+    margin: 2.5rem 0 1.2rem;
+    letter-spacing: 1px;
+}
+
 .promo-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -676,6 +685,14 @@ img {
     border-radius: 16px;
     box-shadow: 0 8px 24px rgba(75, 46, 32, 0.08);
     margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.reservation-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 4px 12px rgba(75, 46, 32, 0.15);
+    background: #e4bc85;
 }
 
 .reservasion-icon {
@@ -1169,6 +1186,7 @@ img {
         transform: translateY(0);
     }
 }
+
 
 .hero-section {
     animation: fadein 0.6s ease;

@@ -175,4 +175,15 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('[data-filter="completed"] span').textContent = `(${completed})`;
     }
 
+    // ==========================================
+    // BAGIAN 3: KLAIM VOUCHER
+    // ==========================================
+    const claimBtn = document.getElementById('claimBtn');
+    if (claimBtn) {
+        claimBtn.addEventListener('click', e => {
+            e.preventDefault();
+            alert("Klaim Berhasil! 🎉\n\nVoucher diskon Anda sudah aktif.\nSilakan simpan atau tangkap layar pesan ini, lalu tunjukkan langsung di kasir saat berkunjung ke The Thirty-Six Cafe ya!");
+        });
+    }
+
 });
