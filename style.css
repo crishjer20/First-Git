@@ -562,93 +562,105 @@ img {
 
 /* ==== BAGIAN BAWAH ==== */
 .bottom-section {
-    padding-bottom: 3rem;
+    margin: 2rem 0;
 }
-
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-items: center;
+}
 .image-card img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    border-radius: 8px;
     object-fit: cover;
-    border-radius: 10px;
 }
-
 .info-card {
-    background-color:#4B2E20;
-    color: var(--putih);
+    background-color: #5A3824;
+    color: #fff;
     padding: 1.8rem;
-    border-radius: 10px;
+    border-radius: 8px;
 }
-
 .info-card h2 {
-    font-size: 1rem;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
+    margin-top: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
-
 .info-card p {
-    font-size: 0.85rem;
-    opacity: 0.9;
-    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    opacity: 0.92;
+    margin-bottom: 1.2rem;
 }
-
 .info-buttons {
     display: flex;
     gap: 0.8rem;
+    flex-wrap: wrap;
 }
-
-.info-buttons button {
-    padding: 0.6rem 1rem;
+.btn-about, .btn-view-menu {
+    padding: 0.6rem 1.1rem;
     border: none;
     border-radius: 4px;
+    font-weight: 500;
     cursor: pointer;
-    font-size: 0.75rem;
-    text-transform: uppercase;
+    font-size: 0.85rem;
+    text-decoration: none;
+    display: inline-block;
+}
+.btn-about {
+    background-color: #fff;
+    color: #5A3824;
+}
+.btn-view-menu {
+    background-color: #D4B996;
+    color: #333;
 }
 
-.btn-download {
-    background-color:#ffffff;
-    color:#4B2E20;
-}
-
-.btn-settings {
-    background-color: rgba(255,255,255,0.2);
-    color: #ffffff;
+@media (max-width: 768px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ==== NOTIFIKASI ==== */
 .notification {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.3s;
-}
-
-.notification.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-.notification-box {
-    background:#ffffff;
-    padding: 2rem;
+    top: 2rem;
+    right: 2rem;
+    max-width: 360px; 
+    width: fit-content; 
+    background: #ffffff;
+    padding: 1rem 1.4rem;
     border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    transform: translateX(420px); 
+    transition: transform 0.3s ease;
+    z-index: 9999; 
 }
-
+.notification.show {
+    transform: translateX(0); 
+}
+.notification-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+}
 .notification-box i {
-    font-size: 2.5rem;
-    color: #28a745;
-    margin-bottom: 1rem;
+    color: #2e7d32;
+    font-size: 1.4rem;
+    margin-top: 0.1rem;
+}
+.notification-box h3 {
+    margin: 0 0 0.3rem 0;
+    font-size: 1rem;
+    color: #333;
+}
+.notification-box p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.4;
 }
 
 /* ==== reservasi bagian home==== */
@@ -787,26 +799,34 @@ img {
 /* Tombol Kategori Menu */
 .menu-tabs {
     display: flex;
+    gap: 0.8rem;
     justify-content: center;
-    gap: 12px;
+    margin: 1.5rem 0;
     flex-wrap: wrap;
-    margin-bottom: 40px;
 }
 
 .tab-btn {
-    padding: 10px 24px;
-    background-color: #F3E9D2;
-    color: #6D5544;
-    border-radius: 8px;
-    font-weight: 600;
+    padding: 0.5rem 1.2rem;
+    border: 2px solid #D4B996;
+    background: #fff;
+    color: #5A3824;
+    border-radius: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
-    border: 2px solid transparent;
+    font-family: inherit;
 }
 
+.tab-btn.active,
 .tab-btn:hover {
-    background-color: #E8D5B9;
-    color: #5A3E2B;
+    background: #5A3824;
+    color: #fff;
+    border-color: #5A3824;
+}
+
+.menu-heading p.info-pesan {
+    margin-top: 0.7rem;
+    font-style: italic;
+    color: #5A3824;
 }
 
 /* Gaya Tombol Saat Diklik */
@@ -897,6 +917,91 @@ img {
     border-radius: 20px;
     background-color: #E8D5B9;
     color: #5A3E2B;
+}
+
+/*BAGIAN RESERVASI*/
+.reservation-item {
+    padding: 0.8rem;
+    margin: 0.6rem 0;
+    background: #fff;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #E8D4B9;
+}
+        
+.reservation-item span {
+    font-size: 0.9rem;
+    color: #5A3824;
+}
+
+.reservation-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.5rem;
+}
+.reservation-table th,
+.reservation-table td {
+    border: 1px solid #ddd;
+    padding: 0.7rem;
+    text-align: left;
+    color: #5A3824;
+    font-size: 0.9rem;
+}
+.reservation-table th {
+    background-color: #f8f0e6;
+    font-weight: 600;
+}
+.reservation-table tr:nth-child(even) {
+    background-color: #fdf9f3;
+}
+.status-select {
+    padding: 0.3rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+        
+.btn-delete {
+    background: #b84545;
+    color: #fff;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+    
+.notification {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    width: fit-content;
+    background: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+    z-index: 999;
+}
+        
+.notification.show {
+    transform: translateX(0);
+}
+        
+.empty-state {
+    padding: 1.5rem;
+    text-align: center;
+    color: #777;
+}
+        
+.form-group input:invalid {
+    border: 1px solid #e74c3c;
+}
+    
+.form-group input:valid {
+    border: 1px solid #2ecc71;
 }
 
 /* BAGIAN TENTANG KAMI */
@@ -1173,6 +1278,95 @@ img {
 
     .reservation-section {
         padding: 2rem 1rem;
+    }
+
+    .card {
+        padding: 1rem;
+        margin: 0 1rem 1rem;
+    }
+    .form-row {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    .form-group label {
+        font-size: 0.85rem;
+    }
+    .form-group input {
+        padding: 0.6rem;
+        font-size: 0.85rem;
+    }
+    .counter {
+        max-width: 120px;
+    }
+    .btn-confirm {
+        width: 100%;
+        padding: 0.7rem;
+        font-size: 0.9rem;
+    }
+    .note {
+        font-size: 0.75rem;
+        text-align: center;
+    }
+
+    /* Tombol tab filter */
+    .registry-header {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    .tabs {
+        overflow-x: auto;
+        display: flex;
+        gap: 0.4rem;
+        padding-bottom: 0.3rem;
+    }
+    .tab-btn {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.6rem;
+        white-space: nowrap;
+    }
+
+    /* Tabel reservasi */
+    .reservation-table {
+        display: block;
+        overflow-x: auto;
+        font-size: 0.8rem;
+    }
+    .reservation-table th,
+    .reservation-table td {
+        padding: 0.5rem 0.4rem;
+    }
+    .status-select {
+        font-size: 0.75rem;
+        padding: 0.2rem;
+    }
+    .btn-delete {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.5rem;
+    }
+
+    /* Bagian bawah: gambar & info */
+    .bottom-section {
+        padding: 0 1rem 2rem;
+    }
+    .image-card img {
+        border-radius: 6px;
+    }
+    .info-card {
+        padding: 1.2rem !important;
+    }
+    .info-card h2 {
+        font-size: 1rem !important;
+    }
+    .info-card p {
+        font-size: 0.8rem !important;
+        line-height: 1.4;
+    }
+    .info-buttons {
+        gap: 0.6rem;
+    }
+    .btn-about, .btn-view-menu {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.9rem;
     }
 }
 

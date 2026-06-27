@@ -13,6 +13,8 @@
         <div class="container">
             <div class="nav-wrapper">
                 <a href="home.html" class="logo">The Thirty-Six Cafe</a>
+                <input type="checkbox" id="cek-menu" hidden>
+                <label for="cek-menu" class="menu-toggle">☰</label>
                 
                 <nav class="navbar">
                     <a href="home.html">Home</a>
@@ -29,29 +31,29 @@
         </div>
     </header>
 
-    <!-- Bagian Menu -->
-    <section class="menu-section">
-        <div class="container">
-            <div class="menu-heading">
-                <h1>Our Signature Menu</h1>
-                <p>Handcrafted with premium ingredients, sourced ethically, and served with passion. Discover flavors that tell a story.</p>
-            </div>
+    <main>
+        <!-- Bagian Menu -->
+        <section class="menu-section">
+            <div class="container">
+                <div class="menu-heading">
+                    <h1>Our Signature Menu</h1>
+                    <p>Every cup and bite offers a rich flavor experience that tells its own special story.</p>
+                    <p style="margin-top: 0.7rem; font-style:italic; color: #5A3824;">For online orders, please contact us at: +62 61 4530970</p>
+                </div>
 
-            <!-- Tombol Kategori -->
-            <div class="menu-tabs">
-                <a href="#kopi" class="tab-btn">Coffee</a>
-                <a href="#kue" class="tab-btn">Pastries</a>
-                <a href="#makanan" class="tab-btn">Brunch</a>
-                <a href="#semua" class="tab-btn active">All Items</a>
-            </div>
+                <!-- Tombol Kategori -->
+                <div class="menu-tabs">
+                    <button class="tab-btn" data-filter="coffee">Coffee</button>
+                    <button class="tab-btn" data-filter="pastries">Pastries</button>
+                    <button class="tab-btn" data-filter="brunch">Brunch</button>
+                    <button class="tab-btn active" data-filter="all">All Items</button>
+                </div>
 
-            <!-- Bagian Semua Menu -->
-            <div id="semua" class="kategori-menu">
-                <h2 class="judul-kategori"></h2>
+                <!-- Daftar Menu Utama -->
                 <div class="menu-grid">
-                    <!-- SEMUA ITEM DIMASUKKAN DI SINI -->
-                    <!-- KOPI -->
-                    <div class="menu-item">
+
+                    <!-- KATEGORI: COFFEE -->
+                    <div class="menu-item" data-category="coffee">
                         <div class="menu-item-img">
                             <img src="gbr/signature late.jpeg" alt="Signature Latte">
                         </div>
@@ -69,7 +71,7 @@
                         </div>
                     </div>
 
-                    <div class="menu-item">
+                    <div class="menu-item" data-category="coffee">
                         <div class="menu-item-img">
                             <img src="gbr/Caramel macchiato.jpeg" alt="Caramel Macchiato">
                         </div>
@@ -86,7 +88,7 @@
                         </div>
                     </div>
 
-                    <div class="menu-item">
+                    <div class="menu-item" data-category="coffee">
                         <div class="menu-item-img">
                             <img src="gbr/Hazelnut latte.jpeg" alt="Hazelnut Latte">
                         </div>
@@ -103,7 +105,7 @@
                         </div>
                     </div>
 
-                    <div class="menu-item">
+                    <div class="menu-item" data-category="coffee">
                         <div class="menu-item-img">
                             <img src="gbr/Vanilla flat white.jpeg" alt="Vanilla Flat White">
                         </div>
@@ -120,7 +122,7 @@
                         </div>
                     </div>
 
-                    <div class="menu-item">
+                    <div class="menu-item" data-category="coffee">
                         <div class="menu-item-img">
                             <img src="gbr/Dark mocha.jpeg" alt="Dark Mocha">
                         </div>
@@ -137,7 +139,7 @@
                         </div>
                     </div>
 
-                    <div class="menu-item">
+                    <div class="menu-item" data-category="coffee">
                         <div class="menu-item-img">
                             <img src="gbr/Vanilla cold brew.jpeg" alt="Vanilla Cold Brew">
                         </div>
@@ -154,7 +156,7 @@
                         </div>
                     </div>
 
-                    <div class="menu-item">
+                    <div class="menu-item" data-category="coffee">
                         <div class="menu-item-img">
                             <img src="gbr/Americano classic.jpeg" alt="Americano Classic">
                         </div>
@@ -171,7 +173,7 @@
                         </div>
                     </div>
 
-                    <div class="menu-item">
+                    <div class="menu-item" data-category="coffee">
                         <div class="menu-item-img">
                             <img src="gbr/Coconut coffee.jpeg" alt="Coconut Coffee">
                         </div>
@@ -188,8 +190,8 @@
                         </div>
                     </div>
 
-                    <!-- KUE & ROTI -->
-                    <div class="menu-item">
+                    <!-- KATEGORI: PASTRIES -->
+                    <div class="menu-item" data-category="pastries">
                         <div class="menu-item-img">
                             <img src="gbr/Classic butter croissant.jpeg" alt="Classic Butter Croissant">
                         </div>
@@ -206,7 +208,7 @@
                         </div>
                     </div>
 
-                    <div class="menu-item">
+                    <div class="menu-item" data-category="pastries">
                         <div class="menu-item-img">
                             <img src="gbr/Almont croissant.jpeg" alt="Almond Croissant">
                         </div>
@@ -223,7 +225,7 @@
                         </div>
                     </div>
 
-                    <div class="menu-item">
+                    <div class="menu-item" data-category="pastries">
                         <div class="menu-item-img">
                             <img src="gbr/Matcha danish.jpeg" alt="Matcha Danish">
                         </div>
@@ -240,7 +242,7 @@
                         </div>
                     </div>
 
-                    <div class="menu-item">
+                    <div class="menu-item" data-category="pastries">
                         <div class="menu-item-img">
                             <img src="gbr/Pain au chocolat.jpeg" alt="Pain au Chocolat">
                         </div>
@@ -257,7 +259,7 @@
                         </div>
                     </div>
 
-                    <div class="menu-item">
+                    <div class="menu-item" data-category="pastries">
                         <div class="menu-item-img">
                             <img src="gbr/Cinnamon roll.jpeg" alt="Cinnamon Roll">
                         </div>
@@ -274,7 +276,7 @@
                         </div>
                     </div>
 
-                    <div class="menu-item">
+                    <div class="menu-item" data-category="pastries">
                         <div class="menu-item-img">
                             <img src="gbr/Cheese danish.jpeg" alt="Cheese Danish">
                         </div>
@@ -291,7 +293,7 @@
                         </div>
                     </div>
 
-                    <div class="menu-item">
+                    <div class="menu-item" data-category="pastries">
                         <div class="menu-item-img">
                             <img src="gbr/Butter scone.jpeg" alt="Butter Scone">
                         </div>
@@ -308,8 +310,8 @@
                         </div>
                     </div>
 
-                    <!-- MAKANAN BERAT -->
-                    <div class="menu-item">
+                    <!-- KATEGORI: BRUNCH -->
+                    <div class="menu-item" data-category="brunch">
                         <div class="menu-item-img">
                             <img src="gbr/Avocado toast.jpeg" alt="Avocado Toast">
                         </div>
@@ -326,7 +328,7 @@
                         </div>
                     </div>
 
-                    <div class="menu-item">
+                    <div class="menu-item" data-category="brunch">
                         <div class="menu-item-img">
                             <img src="gbr/Big breakfast plate.jpeg" alt="Big Breakfast Plate">
                         </div>
@@ -343,7 +345,7 @@
                         </div>
                     </div>
 
-                    <div class="menu-item">
+                    <div class="menu-item" data-category="brunch">
                         <div class="menu-item-img">
                             <img src="gbr/Smoke salmon bagel.jpeg" alt="Smoked Salmon Bagel">
                         </div>
@@ -361,334 +363,9 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Bagian Khusus Kopi -->
-            <div id="kopi" class="kategori-menu"><br>
-                <h2 class="judul-kategori">Coffee</h2>
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="gbr/signature late.jpeg" alt="Signature Latte">
-                        </div>
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3>Signature Latte</h3>
-                                <span class="price">Rp 45.000</span>
-                            </div>
-                            <p>Rich espresso combined with velvety milk, topped with our signature art. Available in vanilla, caramel, or hazelnut.</p>
-                            <div class="tags-menu">
-                                <span class="tag">Hot</span>
-                                <span class="tag">Iced</span>
-                                <span class="tag">Best Seller</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="gbr/Caramel macchiato.jpeg" alt="Caramel Macchiato">
-                        </div>
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3>Caramel Macchiato</h3>
-                                <span class="price">Rp 42.000</span>
-                            </div>
-                            <p>Espresso with steamed milk, layered with sweet caramel syrup and foam texture.</p>
-                            <div class="tags-menu">
-                                <span class="tag">Sweet</span>
-                                <span class="tag">Creamy</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="gbr/Hazelnut latte.jpeg" alt="Hazelnut Latte">
-                        </div>
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3>Hazelnut Latte</h3>
-                                <span class="price">Rp 42.000</span>
-                            </div>
-                            <p>Smooth espresso mixed with velvety milk and aromatic roasted hazelnut flavor.</p>
-                            <div class="tags-menu">
-                                <span class="tag">Aromatic</span>
-                                <span class="tag">Popular</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="gbr/Vanilla flat white.jpeg" alt="Vanilla Flat White">
-                        </div>
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3>Vanilla Flat White</h3>
-                                <span class="price">Rp 40.000</span>
-                            </div>
-                            <p>Double shot espresso with microfoam milk, subtle vanilla taste and smooth texture.</p>
-                            <div class="tags-menu">
-                                <span class="tag">Smooth</span>
-                                <span class="tag">Premium</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="gbr/Dark mocha.jpeg" alt="Dark Mocha">
-                        </div>
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3>Dark Mocha</h3>
-                                <span class="price">Rp 46.000</span>
-                            </div>
-                            <p>Rich espresso combined with premium dark chocolate, perfect for chocolate lovers.</p>
-                            <div class="tags-menu">
-                                <span class="tag">Strong</span>
-                                <span class="tag">Chocolatey</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="gbr/Vanilla cold brew.jpeg" alt="Vanilla Cold Brew">
-                        </div>
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3>Vanilla Cold Brew</h3>
-                                <span class="price">Rp 48.000</span>
-                            </div>
-                            <p>Smooth, low-acid coffee steeped for 18 hours. Infused with homemade vanilla syrup.</p>
-                            <div class="tags-menu">
-                                <span class="tag">Refreshing</span>
-                                <span class="tag">Healthy</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="gbr/Americano classic.jpeg" alt="Americano Classic">
-                        </div>
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3>Americano Classic</h3>
-                                <span class="price">Rp 38.000</span>
-                            </div>
-                            <p>Pure espresso diluted with hot water, delivers strong and authentic coffee taste.</p>
-                            <div class="tags-menu">
-                                <span class="tag">Simple</span>
-                                <span class="tag">Strong</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="gbr/Coconut coffee.jpeg" alt="Coconut Coffee">
-                        </div>
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3>Coconut Coffee</h3>
-                                <span class="price">Rp 49.000</span>
-                            </div>
-                            <p>Iced coffee mixed with fresh coconut water and shredded coconut, tropical sensation.</p>
-                            <div class="tags-menu">
-                                <span class="tag">Tropical</span>
-                                <span class="tag">Unique</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bagian Khusus Kue & Roti -->
-            <div id="kue" class="kategori-menu"><br>
-                <h2 class="judul-kategori">Pastries</h2>
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="gbr/Classic butter croissant.jpeg" alt="Classic Butter Croissant">
-                        </div>
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3>Classic Butter Croissant</h3>
-                                <span class="price">Rp 37.000</span>
-                            </div>
-                            <p>Flaky layers pastry made from premium butter, golden brown and crispy texture.</p>
-                            <div class="tags-menu">
-                                <span class="tag">All Time Favorite</span>
-                                <span class="tag">Bakery</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="gbr/Almont croissant.jpeg" alt="Almond Croissant">
-                        </div>
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3>Almond Croissant</h3>
-                                <span class="price">Rp 42.000</span>
-                            </div>
-                            <p>Butter croissant topped with almond cream, sliced almonds and powdered sugar.</p>
-                            <div class="tags-menu">
-                                <span class="tag">Sweet</span>
-                                <span class="tag">Nutty</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="gbr/Matcha danish.jpeg" alt="Matcha Danish">
-                        </div>
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3>Matcha Danish</h3>
-                                <span class="price">Rp 40.000</span>
-                            </div>
-                            <p>Soft pastry filled with smooth matcha cream, topped with white chocolate chips.</p>
-                            <div class="tags-menu">
-                                <span class="tag">Japanese Style</span>
-                                <span class="tag">Trendy</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="gbr/Pain au chocolat.jpeg" alt="Pain au Chocolat">
-                        </div>
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3>Pain au Chocolat</h3>
-                                <span class="price">Rp 39.000</span>
-                            </div>
-                            <p>Buttery pastry wrapped around premium dark chocolate bar, melt in your mouth.</p>
-                            <div class="tags-menu">
-                                <span class="tag">Chocolate Lover</span>
-                                <span class="tag">Classic</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="gbr/Cinnamon roll.jpeg" alt="Cinnamon Roll">
-                        </div>
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3>Cinnamon Roll</h3>
-                                <span class="price">Rp 41.000</span>
-                            </div>
-                            <p>Soft dough rolled with cinnamon and brown sugar, drizzled with cream cheese glaze.</p>
-                            <div class="tags-menu">
-                                <span class="tag">Warm</span>
-                                <span class="tag">Comfort Food</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="gbr/Cheese danish.jpeg" alt="Cheese Danish">
-                        </div>
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3>Cheese Danish</h3>
-                                <span class="price">Rp 40.000</span>
-                            </div>
-                            <p>Flaky pastry filled with rich cream cheese, perfect balance of sweet and savory.</p>
-                            <div class="tags-menu">
-                                <span class="tag">Savory-Sweet</span>
-                                <span class="tag">Popular</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="gbr/Butter scone.jpeg" alt="Butter Scone">
-                        </div>
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3>Butter Scone</h3>
-                                <span class="price">Rp 37.000</span>
-                            </div>
-                            <p>Traditional scone served with strawberry jam and clotted cream, simple yet delicious.</p>
-                            <div class="tags-menu">
-                                <span class="tag">Classic</span>
-                                <span class="tag">Simple</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bagian Khusus Makanan Berat / Brunch -->
-            <div id="makanan" class="kategori-menu"><br>
-            <h2 class="judul-kategori">Brunch</h2>
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="gbr/Avocado toast.jpeg" alt="Avocado Toast">
-                        </div>
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3>Avocado Toast</h3>
-                                <span class="price">Rp 68.000</span>
-                            </div>
-                            <p>Toasted sourdough bread topped with fresh avocado, poached egg, chili flakes and sesame seeds.</p>
-                            <div class="tags-menu">
-                                <span class="tag">Healthy</span>
-                                <span class="tag">Instagrammable</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="gbr/Big breakfast plate.jpeg" alt="Big Breakfast Plate">
-                        </div>
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3>Big Breakfast Plate</h3>
-                                <span class="price">Rp 85.000</span>
-                            </div>
-                            <p>2 sunny side up eggs, sausage, bacon, hash brown, fresh salad and toasted bread.</p>
-                            <div class="tags-menu">
-                                <span class="tag">Heavy Meal</span>
-                                <span class="tag">Best Seller</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="gbr/Smoke salmon bagel.jpeg" alt="Smoked Salmon Bagel">
-                        </div>
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3>Smoked Salmon Bagel</h3>
-                                <span class="price">Rp 78.000</span>
-                            </div>
-                            <p>Toasted bagel with cream cheese, premium smoked salmon, rocket leaves and lemon zest.</p>
-                            <div class="tags-menu">
-                                <span class="tag">Premium</span>
-                                <span class="tag">Savory</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+        </section>
+    </main>
+    
     <!-- Footer -->
     <footer class="footer">
         <div class="container grid-footer">
@@ -726,5 +403,8 @@
             <p>©2013 THE THIRTY-SIX CAFE. ALL RIGHTS RESERVED.</p>
         </div>
     </footer>
+
+    <!--Panggil File Js-->
+    <script src="script.js"></script>
 </body>
 </html>

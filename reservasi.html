@@ -13,6 +13,8 @@
         <div class="container">
             <div class="nav-wrapper">
                 <a href="home.html" class="logo">The Thirty-Six Cafe</a>
+                <input type="checkbox" id="cek-menu" hidden>
+                <label for="cek-menu" class="menu-toggle">☰</label>
                 
                 <nav class="navbar">
                     <a href="home.html">Home</a>
@@ -34,19 +36,8 @@
         <section class="page-header">
             <div class="container header-layout">
                 <div class="header-info">
-                    <p class="sub-heading">THE THIRTY-SIX CAFE</p>
-                    <h1 class="main-title">Unified Floor Management</h1>
-                    <p class="desc">Kelola pemesanan meja dengan mudah, koordinasi kedatangan tamu, dan pantau ketersediaan tempat secara terpusat untuk pengalaman pelayanan terbaik.</p>
-                </div>
-                <div class="stats-box">
-                    <div class="stat-item">
-                        <span class="num">94%</span>
-                        <span class="label">Kapasitas</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="num">22</span>
-                        <span class="label">Aktif</span>
-                    </div>
+                    <h1 class="main-title">Reserve Your Table</h1>
+                    <p class="desc">Easily book your table online. Pick your date, time, and let us prepare everuthing for you</p>
                 </div>
             </div>
         </section>
@@ -54,13 +45,13 @@
         <!-- KONTEN UTAMA: FORM & TABEL SEJAJAR -->
         <section class="main-content">
             <div class="container content-grid">
-                <!-- FORM NEW BOOKING -->
+                <!-- FORM NEW BOOKING: SUDAH LENGKAP VALIDASI -->
                 <div class="card new-booking">
                     <h2>New Booking</h2>
                     <form id="bookingForm">
                         <div class="form-group">
                             <label>GUEST NAME</label>
-                            <input type="text" placeholder="e.g. diana" id="guestName" required>
+                            <input type="text" placeholder="e.g. diana" id="guestName" required minlength="3">
                         </div>
                         
                         <div class="form-row">
@@ -78,7 +69,7 @@
                             <label>TABLE NO.</label>
                             <div class="counter">
                                 <button type="button" class="btn-minus">-</button>
-                                <input type="text" value="1" id="tableNo" readonly>
+                                <input type="text" value="1" id="tableNo" readonly min="1">
                                 <button type="button" class="btn-plus">+</button>
                             </div>
                         </div>
@@ -88,16 +79,16 @@
                     </form>
                 </div>
 
-                <!-- DAFTAR HARIAN -->
+                <!-- DAFTAR HARIAN: TEMPAT TAMPIL DATA -->
                 <div class="card daily-registry">
                     <div class="registry-header">
-                        <h2>DAILY REGISTRY</h2>
+                        <h2>Booking Records</h2>
                         <div class="tabs">
-                            <button class="tab-btn active" data-filter="all">ALL <span>(0)</span></button>
-                            <button class="tab-btn" data-filter="confirmed">CONFIRMED <span>(0)</span></button>
-                            <button class="tab-btn" data-filter="waitlist">WAITLIST <span>(0)</span></button>
-                            <button class="tab-btn" data-filter="cancelled">CANCELLED <span>(0)</span></button>
-                            <button class="tab-btn" data-filter="completed">COMPLETED <span>(0)</span></button>
+                            <button class="tab-btn active" data-filter="all">ALL <span id="countAll">(0)</span></button>
+                            <button class="tab-btn" data-filter="confirmed">CONFIRMED <span id="countConfirmed">(0)</span></button>
+                            <button class="tab-btn" data-filter="waitlist">WAITLIST <span id="countWaitlist">(0)</span></button>
+                            <button class="tab-btn" data-filter="cancelled">CANCELLED <span id="countCancelled">(0)</span></button>
+                            <button class="tab-btn" data-filter="completed">COMPLETED <span id="countCompleted">(0)</span></button>
                         </div>
                         <button class="filter-icon"><i class="fas fa-chevron-down"></i></button>
                     </div>
@@ -113,14 +104,14 @@
         <section class="bottom-section">
             <div class="container content-grid">
                 <div class="image-card">
-                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Restaurant ambiance">
+                    <img src="gbr/cafeee.jpeg" alt="Suasana nyaman di The Thirty-Six Cafe">
                 </div>
                 <div class="info-card">
-                    <h2>Floor Management Optimization</h2>
-                    <p>The Thirty-Six Cafe's top-tier seating and table-turning system reduces wait times by 40% and improves seating efficiency by 28% — driving better revenue per hour.</p>
+                    <h2>Comfortable Dining Experience</h2>
+                    <p>We provide a comfortable, clean space with a warm atmosphere for every visit of yours — perfect for casual gatherings, quick meetings, or quiet moments enjoying our coffee and dishes.</p>
                     <div class="info-buttons">
-                        <button class="btn-download">DOWNLOAD REPORTS</button>
-                        <button class="btn-settings">SUIT LOGIC</button>
+                        <a href="tentang.html" class="btn-about">About Us</a>
+                        <a href="menu.html" class="btn-view-menu">View Menu</a>
                     </div>
                 </div>
             </div>

@@ -1,18 +1,17 @@
-// ==========================================
-// BAGIAN 1: HALAMAN UTAMA - CARI MEJA
-// ==========================================
-
-const reserveBtn = document.getElementById('reserveBtn');
-if (reserveBtn) {
-    reserveBtn.addEventListener('click', function(e) {
-        this.style.transform = 'scale(0.96)';
-        setTimeout(() => {
-            this.style.transform = 'scale(1)';
-        }, 150);
-    });
-}
-
 document.addEventListener('DOMContentLoaded', () => {
+    // ==========================================
+    // BAGIAN 1: HALAMAN UTAMA - CARI MEJA & ANIMASI
+    // ==========================================
+    const reserveBtn = document.getElementById('reserveBtn');
+    if (reserveBtn) {
+        reserveBtn.addEventListener('click', function(e) {
+            this.style.transform = 'scale(0.96)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+        });
+    }
+
     const card = document.querySelector('.reservation-card');
     if (card) {
         card.style.opacity = '0';
@@ -28,8 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     // BAGIAN 2: HALAMAN RESERVASI
     // ==========================================
-
-    // Counter jumlah orang
+    // Counter jumlah meja/tamu
     const btnMinus = document.querySelector('.btn-minus');
     const btnPlus = document.querySelector('.btn-plus');
     const tableInput = document.getElementById('tableNo');
@@ -48,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Filter Tab
+    // Filter Tab & Status
     const tabButtons = document.querySelectorAll('.tab-btn');
     let currentFilter = 'all';
 
@@ -63,35 +61,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // LOGIKA UTAMA: Tambah data + Notifikasi
+    // Simpan Data & Elemen Utama
     const form = document.getElementById('bookingForm');
     const registryList = document.getElementById('registryList');
     const notification = document.getElementById('notification');
-
-    let reservations = []; // Simpan semua data
+    let reservations = [];
 
     if (form && registryList && notification) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Ambil nilai (TERMASUK TANGGAL)
-            const name = document.getElementById('guestName').value;
+            // Validasi dasar
+            const name = document.getElementById('guestName').value.trim();
             const date = document.getElementById('bookingDate').value;
             const time = document.getElementById('bookingTime').value;
             const people = tableInput ? tableInput.value : 1;
 
-            // Simpan data ke array
+            if (!name || !date || !time) {
+                alert('Mohon isi semua kolom yang wajib!');
+                return;
+            }
+
+            // Tambah data baru
             const newRes = {
                 id: Date.now(),
                 name: name,
                 date: date,
                 time: time,
                 people: people,
-                status: 'confirmed' // Status awal
+                status: 'confirmed'
             };
             reservations.push(newRes);
 
-            // Hapus tulisan kosong
+            // Hapus pesan kosong
             const emptyMsg = registryList.querySelector('.empty-state');
             if (emptyMsg) emptyMsg.remove();
 
@@ -103,16 +105,15 @@ document.addEventListener('DOMContentLoaded', () => {
             notification.classList.add('show');
             setTimeout(() => notification.classList.remove('show'), 2500);
 
-            // Perbarui tampilan
+            // Perbarui tampilan & hitungan
             filterItems();
             updateCount();
         });
     }
 
-    // Fungsi tampilkan data sesuai filter
+    // ✅ TAMPILAN DIUBAH JADI TABEL STANDAR + FORMAT TANGGAL dd/mm/yyyy
     function filterItems() {
         registryList.innerHTML = '';
-
         let filtered = reservations;
         if (currentFilter !== 'all') {
             filtered = reservations.filter(r => r.status === currentFilter);
@@ -123,34 +124,65 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        // Buat elemen tabel lengkap
+        const table = document.createElement('table');
+        table.className = 'reservation-table';
+        table.innerHTML = `
+            <thead>
+                <tr>
+                    <th>Waktu</th>
+                    <th>Tanggal</th>
+                    <th>Nama Tamu</th>
+                    <th>Jumlah Tamu</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        `;
+        const tbody = table.querySelector('tbody');
+
         filtered.forEach(res => {
-            const item = document.createElement('div');
-            item.className = 'registry-item';
-            item.dataset.status = res.status;
+            // Format tanggal sesuai keinginan: hari/bulan/tahun
+            const tampilTanggal = new Date(res.date).toLocaleDateString('id-ID', { 
+                day:'2-digit', 
+                month:'2-digit', 
+                year:'numeric' 
+            });
 
-            // Format tanggal jadi lebih cantik
-            const tampilTanggal = new Date(res.date).toLocaleDateString('id-ID', { day:'2-digit', month:'2-digit', year:'numeric' });
-
-            item.innerHTML = `
-                <div class="item-left">
-                    <span class="time-date">${res.time} | ${tampilTanggal}</span>
-                    <span class="name-guest">${res.name}</span>
-                </div>
-                <div class="item-right">
-                    <span class="guest-count">${res.people} Guests</span>
+            const baris = document.createElement('tr');
+            baris.innerHTML = `
+                <td>${res.time}</td>
+                <td>${tampilTanggal}</td>
+                <td>${res.name}</td>
+                <td>${res.people} Tamu</td>
+                <td>
                     <select class="status-select" onchange="ubahStatus(${res.id}, this.value)">
                         <option value="confirmed" ${res.status==='confirmed'?'selected':''}>Confirmed</option>
                         <option value="waitlist" ${res.status==='waitlist'?'selected':''}>Waitlist</option>
                         <option value="cancelled" ${res.status==='cancelled'?'selected':''}>Cancelled</option>
                         <option value="completed" ${res.status==='completed'?'selected':''}>Completed</option>
                     </select>
-                </div>
+                </td>
+                <td><button class="btn-delete" data-id="${res.id}">Hapus</button></td>
             `;
-            registryList.appendChild(item);
+            tbody.appendChild(baris);
+        });
+
+        registryList.appendChild(table);
+
+        // Pasang fungsi hapus permanen
+        document.querySelectorAll('.btn-delete').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const id = parseInt(btn.dataset.id);
+                reservations = reservations.filter(r => r.id !== id);
+                filterItems();
+                updateCount();
+            });
         });
     }
 
-    // Fungsi ubah status
+    // Ubah status reservasi
     window.ubahStatus = function(id, statusBaru) {
         const idx = reservations.findIndex(r => r.id === id);
         if (idx !== -1) {
@@ -160,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Update jumlah di tombol
+    // Perbarui jumlah di tombol filter
     function updateCount() {
         const all = reservations.length;
         const confirmed = reservations.filter(r => r.status==='confirmed').length;
@@ -168,11 +200,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const cancelled = reservations.filter(r => r.status==='cancelled').length;
         const completed = reservations.filter(r => r.status==='completed').length;
 
-        document.querySelector('[data-filter="all"] span').textContent = `(${all})`;
-        document.querySelector('[data-filter="confirmed"] span').textContent = `(${confirmed})`;
-        document.querySelector('[data-filter="waitlist"] span').textContent = `(${waitlist})`;
-        document.querySelector('[data-filter="cancelled"] span').textContent = `(${cancelled})`;
-        document.querySelector('[data-filter="completed"] span').textContent = `(${completed})`;
+        const setCount = (sel, val) => {
+            const el = document.querySelector(sel);
+            if (el) el.textContent = `(${val})`;
+        };
+        setCount('[data-filter="all"] span', all);
+        setCount('[data-filter="confirmed"] span', confirmed);
+        setCount('[data-filter="waitlist"] span', waitlist);
+        setCount('[data-filter="cancelled"] span', cancelled);
+        setCount('[data-filter="completed"] span', completed);
     }
 
     // ==========================================
@@ -183,6 +219,25 @@ document.addEventListener('DOMContentLoaded', () => {
         claimBtn.addEventListener('click', e => {
             e.preventDefault();
             alert("Klaim Berhasil! 🎉\n\nVoucher diskon Anda sudah aktif.\nSilakan simpan atau tangkap layar pesan ini, lalu tunjukkan langsung di kasir saat berkunjung ke The Thirty-Six Cafe ya!");
+        });
+    }
+
+    // ==========================================
+    // BAGIAN 4: FILTER MENU
+    // ==========================================
+    const tabBtnsMenu = document.querySelectorAll('.tab-btn');
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    if (tabBtnsMenu.length > 0 && menuItems.length > 0) {
+        tabBtnsMenu.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtnsMenu.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                menuItems.forEach(item => {
+                    item.style.display = (filter === 'all' || item.dataset.category === filter) ? 'block' : 'none';
+                });
+            });
         });
     }
 
