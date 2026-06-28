@@ -121,6 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // TABEL STANDAR + FORMAT TANGGAL dd/mm/yyyy
     function filterItems() {
+        if (!registryList) return;
         registryList.innerHTML = '';
         let filtered = reservations;
         if (currentFilter !== 'all') {
@@ -187,6 +188,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 simpanData();
                 filterItems();
                 updateCount();
+
+                // MUNCULKAN NOTIFIKASI HAPUS
+                notification.classList.add('show');
+                
+                document.querySelector('.notification-box h3').textContent = 'Reservasi Dihapus!';
+                document.querySelector('.notification-box p').textContent = 'Data reservasi sudah dihapus dari daftar.';
+                setTimeout(() => notification.classList.remove('show'), 2500);
+                
+                setTimeout(() => {
+                    document.querySelector('.notification-box h3').textContent = 'Reservasi Berhasil!';
+                    document.querySelector('.notification-box p').textContent = 'Data telah ditambahkan ke daftar.';
+                }, 3000);
             });
         });
     }
@@ -225,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCount();
 
     // ==========================================
-    // BAGIAN 3: KLAIM VOUCHER
+    // BAGIAN 3: KLAIM VOUCHER 
     // ==========================================
     const claimBtn = document.getElementById('claimBtn');
     if (claimBtn) {

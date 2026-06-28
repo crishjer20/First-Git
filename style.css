@@ -27,7 +27,6 @@ img {
     display: block;
 }
 
-/* HEADER & NAVIGASI */
 .header {
     background-color: #FFFFFF;
     box-shadow: 0 4px 15px rgba(90, 62, 43, 0.1);
@@ -53,7 +52,6 @@ img {
     letter-spacing: 0.5px;
 }
 
-/* Ikon Garis Tiga */
 .menu-toggle {
     font-size: 28px;
     color: #5A3E2B;
@@ -61,7 +59,6 @@ img {
     display: none; /* Awalnya tersembunyi, muncul di HP/Tablet */
 }
 
-/* Kotak Menu Navigasi */
 .navbar {
     display: flex;
     gap: 5px;
@@ -138,7 +135,6 @@ img {
     color: #FFFFFF;
 }
 
-/* BAGIAN HERO (HOME) */
 .hero-section {
     padding: 60px 0;
     background-color: #F3E9D2;
@@ -196,7 +192,6 @@ img {
     transform: rotate(0deg) scale(1.02);
 }
 
-/* KARTU PROMO (HOME) */
 .promo-section-title {
     text-align: center;
     font-size: 1.3rem;
@@ -254,11 +249,13 @@ img {
     overflow: hidden;
     transition: all 0.3s ease;
     box-shadow: 0 3px 10px rgba(90, 62, 43, 0.08);
+    transform: translateY(0);
 }
 
 .promo-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-100px);
     box-shadow: 0 4px 15px rgba(90, 62, 43, 0.1);
+    filter: brightness(1.03);
 }
 
 .promo-badge {
@@ -317,6 +314,13 @@ img {
     z-index: 1;
 }
 
+#claimBtn {
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
 .promo-icon-sm {
     position: absolute;
     top: 20px;
@@ -348,7 +352,6 @@ img {
     display: inline-block;
 }
 
-/* BAGIAN CARI MEJA (HOME) */
 .find-table-section {
     padding: 60px 0;
     background-color: #FFFFFF;
@@ -373,7 +376,6 @@ img {
     margin-right: auto;
 }
 
-/* ==== KONTEN UTAMA - SEJAJAR ==== */
 .main-content {
     padding: 1rem 0 2rem;
 }
@@ -398,7 +400,6 @@ img {
     letter-spacing: 0.5px;
 }
 
-/* --- FORM --- */
 .form-group {
     margin-bottom: 1rem;
 }
@@ -469,7 +470,6 @@ img {
     color: #6B4836;
 }
 
-/* --- TABEL --- */
 .registry-header {
     display: flex;
     justify-content: space-between;
@@ -560,7 +560,6 @@ img {
     border-radius: 10px;
 }
 
-/* ==== BAGIAN BAWAH ==== */
 .bottom-section {
     margin: 2rem 0;
 }
@@ -617,13 +616,6 @@ img {
     color: #333;
 }
 
-@media (max-width: 768px) {
-    .content-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* ==== NOTIFIKASI ==== */
 .notification {
     position: fixed;
     top: 2rem;
@@ -663,8 +655,7 @@ img {
     line-height: 1.4;
 }
 
-/* ==== reservasi bagian home==== */
-.reservation-setion {
+.reservation-section {
     padding: 4rem 1.2rem;
     background-color: #FAF4E8;
 }
@@ -772,7 +763,6 @@ img {
     display: inline-block;
 }
 
-/* BAGIAN MENU */
 .menu-section {
     padding: 60px 0;
     background-color: #FFFFFF;
@@ -796,7 +786,6 @@ img {
     margin: 0 auto;
 }
 
-/* Tombol Kategori Menu */
 .menu-tabs {
     display: flex;
     gap: 0.8rem;
@@ -829,14 +818,12 @@ img {
     color: #5A3824;
 }
 
-/* Gaya Tombol Saat Diklik */
 .tab-btn.active {
     background-color: #5A3E2B;
     color: #FFFFFF;
     border-color: #5A3E2B;
 }
 
-/* Grid Daftar Menu */
 .menu-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -919,7 +906,6 @@ img {
     color: #5A3E2B;
 }
 
-/*BAGIAN RESERVASI*/
 .reservation-item {
     padding: 0.8rem;
     margin: 0.6rem 0;
@@ -971,24 +957,6 @@ img {
     cursor: pointer;
     font-size: 0.85rem;
 }
-    
-.notification {
-    position: fixed;
-    top: 2rem;
-    right: 2rem;
-    width: fit-content;
-    background: #fff;
-    padding: 1rem 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    transform: translateX(400px);
-    transition: transform 0.3s ease;
-    z-index: 999;
-}
-        
-.notification.show {
-    transform: translateX(0);
-}
         
 .empty-state {
     padding: 1.5rem;
@@ -1004,7 +972,6 @@ img {
     border: 1px solid #2ecc71;
 }
 
-/* BAGIAN TENTANG KAMI */
 .about-section {
     padding: 50px 0;
     background-color: #FFFFFF;
@@ -1063,7 +1030,6 @@ img {
     transform: scale(1.1);
 }
 
-/* FOOTER */
 .footer {
     background-color: #F3E9D2;
     color: #FFF9EC;
@@ -1086,8 +1052,14 @@ img {
 .footer-about p {
     font-size: 14px;
     line-height: 1.7;
+    margin-bottom: 15;
+}
+
+.footer-about p {
+    font-size: 14px;
+    line-height: 1.7;
     margin-bottom: 15px;
-    color: #7A6454;
+    color: #6D5544;
 }
 
 .social-links {
@@ -1099,79 +1071,67 @@ img {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background-color: #F3EEE2;
+    background-color: #E8D5B9;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #5C3D2E;
+    color: #5A3E2B;
     transition: all 0.3s ease;
 }
 
 .social-links a:hover {
-    background-color: #5C3D2E;
+    background-color: #B07D58;
     color: #FFFFFF;
+    transform: translateY(-2px);
 }
 
-.footer-links h4 {
+.footer-links h4,
+.footer-subscribe h4 {
     font-size: 16px;
     margin-bottom: 18px;
-    color: #2C2017;
+    color: #5A3E2B;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .footer-links a {
     display: block;
-    color: #7A6454;
+    color: #6D5544;
     margin-bottom: 10px;
     font-size: 14px;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease, padding-left 0.3s ease;
 }
 
 .footer-links a:hover {
-    color: #5C3D2E;
+    color: #B07D58;
     padding-left: 5px;
-}
-
-.footer-subscribe h4 {
-    font-size: 16px;
-    margin-bottom: 18px;
-    color: #2C2017;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
 .footer-subscribe p {
     font-size: 14px;
-    color: #7A6454;
-    margin-bottom: 15px;
+    color: #6D5544;
+    line-height: 1.6;
 }
 
 .copyright {
     text-align: center;
     padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid #E8D5B9;
     font-size: 13px;
-    color: #E8D5B9;
+    color: #8B5E3C;
 }
-
-
-/* TAMPILAN HP & TABLET*/
 
 /* Untuk Tablet */
 @media (max-width: 991px) {
-    /* Tampilkan ikon garis tiga */
     .menu-toggle {
         display: block;
         order: 3;
     }
 
-    /*Sembunyikan tombol Book Now dibagian atas*/
     .header-actions {
         display: none;
     }
 
-    /* Awalnya menu disembunyikan */
     .navbar {
         position: absolute;
         top: 100%;
@@ -1187,7 +1147,6 @@ img {
         z-index: 100;
     }
 
-    /* SAAT KOTAK CEK DICENTANG, MENU MUNCUL */
     #cek-menu:checked ~ .navbar {
         display: flex;
     }
@@ -1284,58 +1243,45 @@ img {
         padding: 1rem;
         margin: 0 1rem 1rem;
     }
-
     .form-row {
         flex-direction: column;
         gap: 0.8rem;
     }
-
     .form-group label {
         font-size: 0.85rem;
     }
-
     .form-group input {
         padding: 0.6rem;
         font-size: 0.85rem;
     }
-
     .counter {
         max-width: 120px;
     }
-
     .btn-confirm {
         width: 100%;
         padding: 0.7rem;
         font-size: 0.9rem;
     }
-
     .note {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         text-align: center;
-        margin-top: 0.6rem;
-        color: #666;
     }
 
     /* Tombol tab filter */
     .registry-header {
         flex-wrap: wrap;
         gap: 0.5rem;
-        margin-bottom: 1rem;
     }
-
     .tabs {
-        display: flex;
         overflow-x: auto;
-        gap: 0.6rem;
-        padding-bottom: 0.4rem;
-        margin-right: -0.3rem;
+        display: flex;
+        gap: 0.4rem;
+        padding-bottom: 0.3rem;
     }
-
     .tab-btn {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.6rem;
         white-space: nowrap;
-        font-size: 0.82rem;
-        padding: 0.5rem 0.7rem;
-        border-radius: 20px;
     }
 
     /* Tabel reservasi */
@@ -1344,85 +1290,65 @@ img {
         overflow-x: auto;
         font-size: 0.8rem;
     }
-
     .reservation-table th,
     .reservation-table td {
         padding: 0.5rem 0.4rem;
     }
-
     .status-select {
         font-size: 0.75rem;
         padding: 0.2rem;
     }
-
     .btn-delete {
         font-size: 0.7rem;
         padding: 0.3rem 0.5rem;
     }
-
-    /* Bagian bawah: gambar & info */
-    .bottom-section {
-        padding: 0 1rem 2rem;
-    }
-
-    .image-card img {
-        width: 100%;
-        border-radius: 8px;
-    }
-
-    .info-card {
-        padding: 1.5rem !important;
-    }
-
-    .info-card h2 {
-        font-size: 1rem !important;
-    }
-
-    .info-card p {
-        font-size: 0.8rem !important;
-        line-height: 1.4;
-    }
-
-    .info-buttons {
-        gap: 0.6rem;
-    }
-
-    .btn-about, .btn-view-menu {
-        font-size: 0.8rem;
-        padding: 0.5rem 0.9rem;
-    }
-
     .container {
         padding: 0 1.2rem;
         width: 100%;
     }
 
+    /* Judul & paragraf atas */
+    .page-header {
+        padding: 1.2rem 1.2rem 0.8rem;
+    }
+    .main-title {
+        font-size: 1.6rem;
+        line-height: 1.3;
+    }
+    .desc {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-top: 0.4rem;
+        /* Perbaiki salah ketik: everuthing → everything */
+    }
+
+    /* ✅ PERBAIKAN UTAMA: Kartu Form & Daftar */
     .card {
         width: 100%;
         margin: 1rem 0;
-        padding: 1.5rem !important;
+        padding: 1.5rem !important; /* Tambah jarak DALAM kartu agar tidak terpotong */
         border-radius: 10px;
-        overflow: hidden;
+        overflow: hidden; /* Jaga isi tetap di dalam */
     }
 
+    /* Baris Tanggal & Jam: tumpuk vertikal */
     .form-row {
         flex-direction: column;
         gap: 1rem;
         width: 100%;
     }
 
+    /* Semua kolom input: lebar penuh + jarak dalam */
     .form-group {
         width: 100%;
         margin-bottom: 1rem;
     }
-
     .form-group label {
         display: block;
         font-size: 0.9rem;
         margin-bottom: 0.4rem;
         font-weight: 500;
     }
-
     .form-group input {
         width: 100%;
         padding: 0.85rem 0.9rem;
@@ -1430,6 +1356,73 @@ img {
         border-radius: 6px;
     }
 
+    /* Tombol hitung meja */
+    .counter {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    .counter button {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+
+    /* ✅ Tombol Konfirmasi: Pasti muat penuh tapi ada jarak */
+    .btn-confirm {
+        width: 100%;
+        padding: 0.9rem;
+        font-size: 1rem;
+        border-radius: 6px;
+        margin-top: 0.5rem;
+    }
+    .note {
+        font-size: 0.8rem;
+        text-align: center;
+        margin-top: 0.6rem;
+        color: #666;
+    }
+
+    /* Tombol Tab Filter: bisa digeser, tidak keluar */
+    .registry-header {
+        margin-bottom: 1rem;
+    }
+    .tabs {
+        display: flex;
+        overflow-x: auto;
+        gap: 0.6rem;
+        padding-bottom: 0.4rem;
+        margin-right: -0.3rem;
+    }
+    .tab-btn {
+        white-space: nowrap;
+        font-size: 0.82rem;
+        padding: 0.5rem 0.7rem;
+        border-radius: 20px;
+    }
+
+    /* ✅ Tabel: pembungkus geser sudah benar */
+    .registry-table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        margin-top: 0.5rem;
+    }
+    .reservation-table {
+        min-width: 620px;
+        font-size: 0.85rem;
+    }
+
+    /* Bagian bawah: gambar & info */
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+    .image-card img {
+        width: 100%;
+        border-radius: 8px;
+    }
+    .info-card {
+        padding: 1.5rem !important;
+    }
     .counter {
         display: flex;
         align-items: center;
@@ -1438,7 +1431,6 @@ img {
         max-width: 160px; /* Batasi lebar total agar tidak melebar */
         width: fit-content;
     }
-
     .counter button {
         width: 36px;
         height: 36px;
@@ -1451,7 +1443,6 @@ img {
         align-items: center;
         justify-content: center;
     }
-
     .counter input {
         width: 50px;
         height: 36px;
@@ -1462,67 +1453,36 @@ img {
         font-size: 0.95rem;
     }
 
-    .btn-confirm {
-        width: 100%;
-        padding: 0.9rem;
-        font-size: 1rem;
+    /* Bagian bawah: gambar & info */
+    .bottom-section {
+        padding: 0 1rem 2rem;
+    }
+    .image-card img {
         border-radius: 6px;
-        margin-top: 0.5rem;
     }
-
-    .registry-table-wrapper {
-        width: 100%;
-        overflow-x: auto;
-        margin-top: 0.5rem;
+    .info-card {
+        padding: 1.2rem !important;
     }
-
-    .reservation-table {
-        width: 100%;
-        min-width: 620px;
-        font-size: 0.85rem;
+    .info-card h2 {
+        font-size: 1rem !important;
     }
-
-    .reservation-table th,
-    .reservation-table td {
-        padding: 0.6rem 0.4rem;
+    .info-card p {
+        font-size: 0.8rem !important;
+        line-height: 1.4;
     }
-
-    .tabs {
-        display: flex;
-        overflow-x: auto;
-        gap: 0.5rem;
-        padding-bottom: 0.3rem;
+    .info-buttons {
+        gap: 0.6rem;
     }
-    
-    .tab-btn {
-        white-space: nowrap;
+    .btn-about, .btn-view-menu {
         font-size: 0.8rem;
-        padding: 0.4rem 0.6rem;
+        padding: 0.5rem 0.9rem;
     }
-
-    /* Bagian Bawah: Gambar & Info */
     .content-grid {
         grid-template-columns: 1fr;
-        gap: 1.2rem;
-    }
-
-    .page-header {
-        padding: 1.2rem 1.2rem 0.8rem;
-    }
-
-    .main-title {
-        font-size: 1.6rem;
-        line-height: 1.3;
-    }
-
-    .desc {
-        font-size: 0.95rem;
-        line-height: 1.5;
-        margin-top: 0.4rem;
     }
 }
 
-@keyframes fadein {
+@keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(20px);
@@ -1533,7 +1493,14 @@ img {
     }
 }
 
-
-.hero-section {
-    animation: fadein 0.6s ease;
+.promo-card,
+.menu-item,
+.about-image,
+.about-text {
+    animation: fadeInUp 0.6s ease forwards;
 }
+
+.promo-card:nth-child(1) { animation-delay: 0.1s; }
+.promo-card:nth-child(2) { animation-delay: 0.2s; }
+.promo-card:nth-child(3) { animation-delay: 0.3s; }
+.promo-card:nth-child(4) { animation-delay: 0.4s; }
