@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+    let reservations = [];
+    const simpanan = localStorage.getItem('dataReservasi');
+    if (simpanan) reservations = JSON.parse(simpanan);
+
+    function simpanData() {
+        localStorage.setItem('dataReservasi', JSON.stringify(reservations));
+    }
+
     // ==========================================
     // BAGIAN 1: HALAMAN UTAMA - CARI MEJA & ANIMASI
     // ==========================================
@@ -65,7 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('bookingForm');
     const registryList = document.getElementById('registryList');
     const notification = document.getElementById('notification');
-    let reservations = [];
 
     if (form && registryList && notification) {
         form.addEventListener('submit', function(e) {
@@ -92,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 status: 'confirmed'
             };
             reservations.push(newRes);
+            simpanData();
 
             // Hapus pesan kosong
             const emptyMsg = registryList.querySelector('.empty-state');
@@ -111,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ✅ TAMPILAN DIUBAH JADI TABEL STANDAR + FORMAT TANGGAL dd/mm/yyyy
+    // TABEL STANDAR + FORMAT TANGGAL dd/mm/yyyy
     function filterItems() {
         registryList.innerHTML = '';
         let filtered = reservations;
@@ -124,18 +132,18 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Buat elemen tabel lengkap
+        // Buat tabel
         const table = document.createElement('table');
         table.className = 'reservation-table';
         table.innerHTML = `
             <thead>
                 <tr>
-                    <th>Waktu</th>
-                    <th>Tanggal</th>
-                    <th>Nama Tamu</th>
-                    <th>Jumlah Tamu</th>
+                    <th>Time</th>
+                    <th>Date</th>
+                    <th>Guest Name</th>
+                    <th>Number of Guest</th>
                     <th>Status</th>
-                    <th>Aksi</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody></tbody>
@@ -176,6 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.addEventListener('click', () => {
                 const id = parseInt(btn.dataset.id);
                 reservations = reservations.filter(r => r.id !== id);
+                simpanData();
                 filterItems();
                 updateCount();
             });
@@ -187,12 +196,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const idx = reservations.findIndex(r => r.id === id);
         if (idx !== -1) {
             reservations[idx].status = statusBaru;
+            simpanData();
             filterItems();
             updateCount();
         }
     };
 
-    // Perbarui jumlah di tombol filter
+    // jumlah di tombol filter
     function updateCount() {
         const all = reservations.length;
         const confirmed = reservations.filter(r => r.status==='confirmed').length;
@@ -210,6 +220,9 @@ document.addEventListener('DOMContentLoaded', () => {
         setCount('[data-filter="cancelled"] span', cancelled);
         setCount('[data-filter="completed"] span', completed);
     }
+
+    filterItems();
+    updateCount();
 
     // ==========================================
     // BAGIAN 3: KLAIM VOUCHER
