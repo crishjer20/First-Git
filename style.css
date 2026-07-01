@@ -1267,7 +1267,6 @@ img {
         text-align: center;
     }
 
-    /* Tombol tab filter */
     .registry-header {
         flex-wrap: wrap;
         gap: 0.5rem;
@@ -1284,7 +1283,6 @@ img {
         white-space: nowrap;
     }
 
-    /* Tabel reservasi */
     .reservation-table {
         display: block;
         overflow-x: auto;
@@ -1306,8 +1304,6 @@ img {
         padding: 0 1.2rem;
         width: 100%;
     }
-
-    /* Judul & paragraf atas */
     .page-header {
         padding: 1.2rem 1.2rem 0.8rem;
     }
@@ -1319,26 +1315,22 @@ img {
         font-size: 0.95rem;
         line-height: 1.5;
         margin-top: 0.4rem;
-        /* Perbaiki salah ketik: everuthing → everything */
     }
 
-    /* ✅ PERBAIKAN UTAMA: Kartu Form & Daftar */
     .card {
         width: 100%;
         margin: 1rem 0;
-        padding: 1.5rem !important; /* Tambah jarak DALAM kartu agar tidak terpotong */
+        padding: 1.5rem !important; 
         border-radius: 10px;
-        overflow: hidden; /* Jaga isi tetap di dalam */
+        overflow: hidden; 
     }
 
-    /* Baris Tanggal & Jam: tumpuk vertikal */
     .form-row {
         flex-direction: column;
         gap: 1rem;
         width: 100%;
     }
 
-    /* Semua kolom input: lebar penuh + jarak dalam */
     .form-group {
         width: 100%;
         margin-bottom: 1rem;
@@ -1356,7 +1348,6 @@ img {
         border-radius: 6px;
     }
 
-    /* Tombol hitung meja */
     .counter {
         display: flex;
         align-items: center;
@@ -1367,7 +1358,6 @@ img {
         font-size: 1rem;
     }
 
-    /* ✅ Tombol Konfirmasi: Pasti muat penuh tapi ada jarak */
     .btn-confirm {
         width: 100%;
         padding: 0.9rem;
@@ -1382,7 +1372,6 @@ img {
         color: #666;
     }
 
-    /* Tombol Tab Filter: bisa digeser, tidak keluar */
     .registry-header {
         margin-bottom: 1rem;
     }
@@ -1400,7 +1389,6 @@ img {
         border-radius: 20px;
     }
 
-    /* ✅ Tabel: pembungkus geser sudah benar */
     .registry-table-wrapper {
         width: 100%;
         overflow-x: auto;
@@ -1411,7 +1399,6 @@ img {
         font-size: 0.85rem;
     }
 
-    /* Bagian bawah: gambar & info */
     .content-grid {
         grid-template-columns: 1fr;
         gap: 1.2rem;
@@ -1426,9 +1413,9 @@ img {
     .counter {
         display: flex;
         align-items: center;
-        justify-content: center; /* atau kiri: flex-start */
+        justify-content: center;
         gap: 0.6rem;
-        max-width: 160px; /* Batasi lebar total agar tidak melebar */
+        max-width: 160px; 
         width: fit-content;
     }
     .counter button {
@@ -1453,7 +1440,6 @@ img {
         font-size: 0.95rem;
     }
 
-    /* Bagian bawah: gambar & info */
     .bottom-section {
         padding: 0 1rem 2rem;
     }
